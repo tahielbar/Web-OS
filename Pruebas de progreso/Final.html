@@ -7,6 +7,16 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #35b4f9;
+            color: #333;
+        }
+        .reloj-contenedor {
+            font-size: 24px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            display: inline-block;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -14,16 +24,34 @@
 
     <h1>Welcome to my own OS!</h1>
     
+    <div class="reloj-contenedor">
+        Time: <span id="reloj">00:00:00</span>
+    </div>
+
     <h2>Introduction</h2>
     
     <p>Hello world!</p>
     
-    <img style="width: 100px; height: 64px" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1280px-Flag_of_Argentina.svg.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=thumbnail" />
+    <img style="width: 100px; height: 64px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo8vkzSyM_P22pnt2lT2_EAbKBQp5lZy3tYa7Bvj9eiw&s=10" />
 
     <br><br>
-    <a href="https://www.instagram.com/p/Da9Q-rnt5q7/?hl=en" target="_blank">Messi</a>
+    <a href="https://instagram.com" target="_blank">Messi</a>
 
     <p>My name is Tahiel. I'm from Argentina. I love programming and electronics. I also play guitar, bass and piano.</p>
+
+    <script>
+        function actualizarReloj() {
+            const ahora = new Date();
+            const hora = String(ahora.getHours()).padStart(2, '0');
+            const minutos = String(ahora.getMinutes()).padStart(2, '0');
+            const segundos = String(ahora.getSeconds()).padStart(2, '0');
+            
+            document.getElementById('reloj').textContent = `${hora}:${minutos}:${segundos}`;
+        }
+
+        setInterval(actualizarReloj, 1000);
+        actualizarReloj();
+    </script>
 
 </body>
 </html>
